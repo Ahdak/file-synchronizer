@@ -43,7 +43,7 @@ class CopyExecutorTest {
                 new FileCopyInfo(f1Src,f1Dest)
         ));
         // then
-        List<Path> copiedFiles = getAllfilesInDest(destPath) ;
+        List<Path> copiedFiles = getAllFilesInDest(destPath) ;
         Assertions.assertThat(copiedFiles).containsExactlyInAnyOrder(
                 d1dest,
                 d1dest.resolve("f11.txt"),
@@ -56,7 +56,7 @@ class CopyExecutorTest {
         );
     }
 
-    private List<Path> getAllfilesInDest(Path destPath) throws IOException {
+    private List<Path> getAllFilesInDest(Path destPath) throws IOException {
         List<Path> result = new ArrayList<>() ;
         Queue<Path> queue = new ArrayDeque<>() ;
         queue.add(destPath) ;

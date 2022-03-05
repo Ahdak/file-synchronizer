@@ -20,6 +20,7 @@ public record FileInfoFinder(String sourceFolderPath, String destFolderPath) {
 
     private void listFileInfoToCopy(Path input, List<FileCopyInfo> result) throws IOException {
         var sources = Files.list(input)
+                .filter(p -> !p.toString().contains(".DS_Store"))
                 .map(this::createInfo)
                 .collect(Collectors.toList());
         for (var fileCopyInfo : sources) {
